@@ -24,6 +24,9 @@ export class ArticleEntity {
   @Column()
   title: string;
 
+  @Column()
+  image: string;
+
   @Column('text')
   description: string;
 
