@@ -7,5 +7,7 @@ export class ArticleVo {
 
   categoryId?: number;
 
+  image?: string;
+
   tags: number[] = [];
 }

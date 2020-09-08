@@ -2,7 +2,7 @@ import { IsEmail } from 'class-validator';
 import * as crypto from 'crypto';
 import {
   BeforeInsert,
-  Column,
+  BeforeUpdate, Column,
   Entity,
   JoinTable,
   ManyToMany,
@@ -36,6 +36,23 @@ export class UserEntity {
   @BeforeInsert()
   hashPassword() {
     this.password = crypto.createHmac('sha256', this.password).digest('hex');
+  }
+
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP'
+  })
+  createdAt: Date;
+
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP'
+  })
+  updatedAt: Date;
+
+  @BeforeUpdate()
+  updateTimestamp() {
+    this.updatedAt = new Date();
   }
 
   @ManyToMany(type => ArticleEntity)
