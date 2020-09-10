@@ -1,6 +1,7 @@
 export interface UserVo {
   email: string;
   password: string;
+  isAdmin?: boolean;
 }
 export class UserDto {
   id: number;
