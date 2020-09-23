@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm';
 import { ArticleEntity } from './article.entity';
+import { ProjectEntity } from './project.entity';
 
 @Entity('category')
 export class CategoryEntity {
@@ -17,6 +18,9 @@ export class CategoryEntity {
 
   @Column('text')
   description: string;
+
+  @Column()
+  module: string;
 
   @Column({
     type: 'timestamp',
@@ -40,4 +44,10 @@ export class CategoryEntity {
     article => article.category
   )
   articles: ArticleEntity[];
+
+  @OneToMany(
+    type => ProjectEntity,
+    project => project.category
+  )
+  projects: ProjectEntity[];
 }
