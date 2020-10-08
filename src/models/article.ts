@@ -9,5 +9,5 @@ export class ArticleVo {
 
   image?: string;
 
-  tags: number[] = [];
+  tagIds: number[] = [];
 }

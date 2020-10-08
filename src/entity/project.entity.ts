@@ -1,11 +1,14 @@
 import {
-    BeforeUpdate,
-    Column,
-    Entity,
-    ManyToOne,
-    PrimaryGeneratedColumn
+  BeforeUpdate,
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  PrimaryGeneratedColumn
 } from 'typeorm';
 import { CategoryEntity } from './category.entity';
+import { TagEntity } from './tag.entity';
 import { UserEntity } from './user.entity';
 
 @Entity('project')
@@ -30,9 +33,6 @@ import { UserEntity } from './user.entity';
 
     @Column()
     role: string;
-
-    @Column()
-    tags: string;
 
     @Column()
     url: string;
@@ -75,4 +75,13 @@ import { UserEntity } from './user.entity';
       category => category.projects
     )
     category: CategoryEntity;
+
+    @ManyToMany(
+      type => TagEntity,
+      tag => tag.projects
+    )
+    @JoinTable({
+      name: 'project_tag'
+    })
+    tags: TagEntity[];
   }

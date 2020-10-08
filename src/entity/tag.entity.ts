@@ -1,5 +1,6 @@
 import { BeforeUpdate, Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ArticleEntity } from './article.entity';
+import { ProjectEntity } from './project.entity';
 
 @Entity('tag')
 export class TagEntity {
@@ -8,6 +9,9 @@ export class TagEntity {
 
   @Column()
   content: string;
+
+  @Column()
+  module: string;
 
   @Column({
     type: 'timestamp',
@@ -31,4 +35,10 @@ export class TagEntity {
     article => article.tags
   )
   articles: ArticleEntity;
+
+  @ManyToMany(
+    type => ProjectEntity,
+    project => project.tags
+  )
+  projects: ProjectEntity;
 }
