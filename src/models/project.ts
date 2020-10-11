@@ -11,11 +11,11 @@ export class ProjectVo {
 
     url: string;
 
-    category?: number;
+    categoryId?: number;
 
     image?: string;
 
-    tags: string;
+    tagIds: number[] = [];
 
     startedAt: Date;
 

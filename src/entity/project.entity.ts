@@ -34,7 +34,7 @@ import { UserEntity } from './user.entity';
     @Column()
     role: string;
 
-    @Column()
+    @Column({default: ''})
     url: string;
 
     @Column({
