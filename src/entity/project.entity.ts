@@ -29,6 +29,9 @@ import { UserEntity } from './user.entity';
     content: string;
 
     @Column()
+    state: string;
+
+    @Column()
     github: string;
 
     @Column()
