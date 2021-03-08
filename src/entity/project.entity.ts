@@ -19,7 +19,7 @@ import { UserEntity } from './user.entity';
     @Column()
     name: string;
 
-    @Column()
+    @Column({default: ''})
     image: string;
 
     @Column('text')
@@ -28,10 +28,10 @@ import { UserEntity } from './user.entity';
     @Column('text')
     content: string;
 
-    @Column()
+    @Column({default: ''})
     github: string;
 
-    @Column()
+    @Column({default: ''})
     role: string;
 
     @Column({default: ''})

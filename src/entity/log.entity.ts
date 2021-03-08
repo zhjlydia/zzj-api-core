@@ -16,7 +16,7 @@ export class LogEntity {
   })
   module: ModuleType;
 
-  @Column()
+  @Column({default: ''})
   ip: string;
 
   @Column({
