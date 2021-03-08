@@ -29,6 +29,9 @@ import { UserEntity } from './user.entity';
     content: string;
 
     @Column({default: ''})
+    state: string;
+
+    @Column()
     github: string;
 
     @Column({default: ''})

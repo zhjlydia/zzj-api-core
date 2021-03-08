@@ -5,6 +5,8 @@ export class ProjectVo {
 
     content: string;
 
+    state: string;
+
     github: string;
 
     role: string;
