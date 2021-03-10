@@ -33,6 +33,10 @@ export class ArticleEntity {
   @Column('text')
   content: string;
 
+  @Column({default: ''})
+  @Column('text')
+  config: string;
+
   @Column({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP'
