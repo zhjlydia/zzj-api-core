@@ -1,4 +1,10 @@
-import { BeforeUpdate, Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeUpdate,
+  Column,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 import { ArticleEntity } from './article.entity';
 import { ProjectEntity } from './project.entity';
 
@@ -12,6 +18,9 @@ export class TagEntity {
 
   @Column()
   module: string;
+
+  @Column({ default: false })
+  isDeleted: boolean;
 
   @Column({
     type: 'timestamp',

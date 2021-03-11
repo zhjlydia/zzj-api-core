@@ -12,79 +12,88 @@ import { TagEntity } from './tag.entity';
 import { UserEntity } from './user.entity';
 
 @Entity('project')
-  export class ProjectEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+export class ProjectEntity {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column({default: ''})
-    image: string;
+  @Column({ default: '' })
+  image: string;
 
-    @Column('text')
-    description: string;
+  @Column('text')
+  description: string;
 
-    @Column('text')
-    content: string;
+  @Column('text')
+  content: string;
 
-    @Column({default: ''})
-    state: string;
+  @Column({ default: '' })
+  stateText: string;
 
-    @Column()
-    github: string;
+  @Column()
+  github: string;
 
-    @Column({default: ''})
-    role: string;
+  @Column({ default: '' })
+  role: string;
 
-    @Column({default: ''})
-    url: string;
+  @Column({ default: '' })
+  url: string;
 
-    @Column({
-      type: 'timestamp'
-    })
-    startedAt: Date;
+  /**
+   *  1 已上架 2 已下架
+   */
+  @Column({ default: 2 })
+  state: number;
 
-    @Column({
-        type: 'timestamp'
-      })
-    endedAt: Date;
+  @Column({ default: false })
+  isDeleted: boolean;
 
-    @Column({
-      type: 'timestamp',
-      default: () => 'CURRENT_TIMESTAMP'
-    })
-    createdAt: Date;
+  @Column({
+    type: 'timestamp'
+  })
+  startedAt: Date;
 
-    @Column({
-      type: 'timestamp',
-      default: () => 'CURRENT_TIMESTAMP'
-    })
-    updatedAt: Date;
+  @Column({
+    type: 'timestamp'
+  })
+  endedAt: Date;
 
-    @BeforeUpdate()
-    updateTimestamp() {
-      this.updatedAt = new Date();
-    }
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP'
+  })
+  createdAt: Date;
 
-    @ManyToOne(
-      type => UserEntity,
-      user => user.articles
-    )
-    author: UserEntity;
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP'
+  })
+  updatedAt: Date;
 
-    @ManyToOne(
-      type => CategoryEntity,
-      category => category.projects
-    )
-    category: CategoryEntity;
-
-    @ManyToMany(
-      type => TagEntity,
-      tag => tag.projects
-    )
-    @JoinTable({
-      name: 'project_tag'
-    })
-    tags: TagEntity[];
+  @BeforeUpdate()
+  updateTimestamp() {
+    this.updatedAt = new Date();
   }
+
+  @ManyToOne(
+    type => UserEntity,
+    user => user.articles
+  )
+  author: UserEntity;
+
+  @ManyToOne(
+    type => CategoryEntity,
+    category => category.projects
+  )
+  category: CategoryEntity;
+
+  @ManyToMany(
+    type => TagEntity,
+    tag => tag.projects
+  )
+  @JoinTable({
+    name: 'project_tag'
+  })
+  tags: TagEntity[];
+}

@@ -5,9 +5,13 @@ export class ArticleVo {
 
   content: string;
 
-  categoryId?: number;
+  categoryId: number;
 
-  image?: string;
+  image: string;
 
-  tagIds: number[] = [];
+  tagIds?: number[] = [];
+
+  isDeleted?: boolean;
+
+  state?: number;
 }

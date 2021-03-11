@@ -22,6 +22,9 @@ export class CategoryEntity {
   @Column()
   module: string;
 
+  @Column({ default: false })
+  isDeleted: boolean;
+
   @Column({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP'

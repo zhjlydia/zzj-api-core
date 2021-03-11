@@ -1,4 +1,10 @@
-import { BeforeUpdate, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeUpdate,
+  Column,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 import { ArticleEntity } from './article.entity';
 import { UserEntity } from './user.entity';
 
@@ -12,6 +18,9 @@ export class CommentEntity {
 
   @Column()
   parentId: number;
+
+  @Column({ default: false })
+  isDeleted: boolean;
 
   @Column({
     type: 'timestamp',

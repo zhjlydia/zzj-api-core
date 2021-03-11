@@ -1,25 +1,29 @@
 export class ProjectVo {
-    name: string;
+  name: string;
 
-    description: string;
+  description: string;
 
-    content: string;
+  content: string;
 
-    state: string;
+  stateText: string;
 
-    github: string;
+  github: string;
 
-    role: string;
+  role: string;
 
-    url: string;
+  url: string;
 
-    categoryId?: number;
+  state?: number;
 
-    image?: string;
+  isDeleted?: boolean;
 
-    tagIds: number[] = [];
+  categoryId?: number;
 
-    startedAt: Date;
+  image?: string;
 
-    endedAt: Date;
-  }
+  tagIds: number[] = [];
+
+  startedAt: Date;
+
+  endedAt: Date;
+}

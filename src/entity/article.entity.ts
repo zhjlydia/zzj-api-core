@@ -24,7 +24,7 @@ export class ArticleEntity {
   @Column()
   title: string;
 
-  @Column({default: ''})
+  @Column({ default: '' })
   image: string;
 
   @Column('text')
@@ -33,9 +33,17 @@ export class ArticleEntity {
   @Column('text')
   content: string;
 
-  @Column({default: ''})
-  @Column('text')
+  @Column('text', { nullable: true })
   config: string;
+
+  /**
+   *  1 已上架 2 已下架
+   */
+  @Column({ default: 2 })
+  state: number;
+
+  @Column({ default: false })
+  isDeleted: boolean;
 
   @Column({
     type: 'timestamp',

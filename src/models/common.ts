@@ -19,3 +19,17 @@ export interface PaginationData<T> {
    */
   total: number;
 }
+
+/**
+ * 上下架状态
+ */
+export enum StateEnum {
+  /**
+   * 上架
+   */
+  UP = 1,
+  /**
+   * 下架
+   */
+  DOWN = 2
+}
