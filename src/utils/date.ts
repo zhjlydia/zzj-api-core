@@ -5,6 +5,13 @@ export function localDate(v?: Date): Date {
   return d;
 }
 
-export function formatQueryDatetoUtc(v: string): Date {
-  return new Date(dayjs(v).format('YYYY-MM-DD HH:mm:ss'));
+export function formatDayOfStart(v?: string): string {
+  if (v) {
+    return dayjs(v)
+      .startOf('date')
+      .format('YYYY-MM-DD HH:mm:ss');
+  }
+  return dayjs()
+    .startOf('date')
+    .format('YYYY-MM-DD HH:mm:ss');
 }
