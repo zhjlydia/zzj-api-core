@@ -88,7 +88,4 @@ export class ArticleEntity {
     comment => comment.article
   )
   comments: CommentEntity[];
-
-  @Column({ default: 0 })
-  favoriteCount: number;
 }

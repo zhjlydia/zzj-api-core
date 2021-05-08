@@ -2,10 +2,9 @@ import { IsEmail } from 'class-validator';
 import * as crypto from 'crypto';
 import {
   BeforeInsert,
-  BeforeUpdate, Column,
+  BeforeUpdate,
+  Column,
   Entity,
-  JoinTable,
-  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn
 } from 'typeorm';
@@ -30,7 +29,7 @@ export class UserEntity {
   @Column({ default: '' })
   image: string;
 
-  @Column()
+  @Column({ default: '' })
   password: string;
 
   @BeforeInsert()
@@ -54,10 +53,6 @@ export class UserEntity {
   updateTimestamp() {
     this.updatedAt = new Date();
   }
-
-  @ManyToMany(type => ArticleEntity)
-  @JoinTable()
-  favorites: ArticleEntity[];
 
   @OneToMany(
     type => ArticleEntity,
