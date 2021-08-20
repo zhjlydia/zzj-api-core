@@ -5,8 +5,8 @@ export interface UserVo {
 }
 export class UserDto {
   id: number;
-  username: string;
-  email: string;
+  username?: string;
+  email?: string;
   image?: string;
 }
 
